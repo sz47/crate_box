@@ -8,6 +8,6 @@ pub fn game(state: *ste.State) void {
     rl.EndDrawing();
 
     if (rl.IsKeyPressed(rl.KeyboardKey.KEY_SPACE)) {
-        state.Screen = ste.screen.GameOver;
+        state.Screen = ste.Screen.GameOver;
     }
 }

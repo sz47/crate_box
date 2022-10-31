@@ -10,9 +10,9 @@ pub fn mainMenu(state: *ste.State) void {
     rl.EndDrawing();
 
     if (rl.IsKeyPressed(rl.KeyboardKey.KEY_SPACE)) {
-        state.Screen = ste.screen.Game;
+        state.Screen = ste.Screen.Game;
     }
     if (rl.IsKeyPressed(rl.KeyboardKey.KEY_A)) {
-        state.Screen = ste.screen.About;
+        state.Screen = ste.Screen.About;
     }
 }

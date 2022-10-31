@@ -11,6 +11,6 @@ pub fn about(state: *ste.State) void {
     rl.EndDrawing();
 
     if (rl.IsKeyPressed(rl.KeyboardKey.KEY_SPACE) or rl.IsKeyPressed(rl.KeyboardKey.KEY_A)) {
-        state.Screen = ste.screen.MainMenu;
+        state.Screen = ste.Screen.MainMenu;
     }
 }

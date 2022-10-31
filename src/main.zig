@@ -7,28 +7,29 @@ const over = @import("gameOver.zig");
 const game = @import("game.zig");
 
 pub fn main() anyerror!void {
-    const screenWidth = 800;
-    const screenHeight = 450;
+    const w = rl.GetMonitorWidth(0);
+    const h = rl.GetMonitorHeight(0);
 
-    rl.InitWindow(screenWidth, screenHeight, "Crate Box");
+    rl.InitWindow(w, h, "Crate Box");
     rl.SetTargetFPS(60);
 
     // TODO Init State Struct
     // TODO Improve init
     var state: ste.State = undefined;
+    state.maxY = h; state.maxX = w;
     ste.stateInit(&state);
 
     while (!rl.WindowShouldClose()) {
-        if (state.Screen == ste.screen.MainMenu) {
+        if (state.Screen == ste.Screen.MainMenu) {
             menu.mainMenu(&state);
         }
-        if (state.Screen == ste.screen.Game) {
+        if (state.Screen == ste.Screen.Game) {
             game.game(&state);
         }
-        if (state.Screen == ste.screen.About) {
+        if (state.Screen == ste.Screen.About) {
             abt.about(&state);
         }
-        if (state.Screen == ste.screen.GameOver) {
+        if (state.Screen == ste.Screen.GameOver) {
             try over.gameOver(&state);
         }
     }

@@ -9,13 +9,13 @@ pub fn gameOver(state: *ste.State) !void {
 
     // TODO improve these 3 lines
     var buf: [11]u8 = undefined;
-    const slice = try std.fmt.bufPrint(&buf, "MaxScore {}", .{state.Game.MaxScore});
+    const slice = try std.fmt.bufPrint(&buf, "MaxScore {}", .{state.Game.maxScore});
     rl.DrawText(@ptrCast(*const u8, slice), 20, 140, 60, rl.RED);
 
     rl.DrawText("press space to go to main menu", 20, 410, 20, rl.LIGHTGRAY);
     rl.EndDrawing();
 
     if (rl.IsKeyPressed(rl.KeyboardKey.KEY_SPACE)) {
-        state.Screen = ste.screen.MainMenu;
+        state.Screen = ste.Screen.MainMenu;
     }
 }
